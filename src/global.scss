@@ -35,3 +35,51 @@
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import "@ionic/angular/css/palettes/dark.system.css";
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@800&display=swap');
+
+
+@mixin handleTransition($item, $text) {
+  #{$item} {
+    transition: flex-grow var(--duration) var(--cubic);
+    &.active {
+      #{$text} {
+        transform: translate3d(0 , 0, 0);
+        transition: transform calc(var(--duration) / 1.5);
+      }
+    }
+    &:not(.active) {
+      #{$text} {
+        transform: translate3d(0, 109%, 0);
+        transition: transform calc(var(--duration) / 3.7);
+      }
+    }
+  }
+}
+
+
+
+html {
+  box-sizing: border-box;
+  --duration: .45s;
+  --cubic: cubic-bezier(0.4, 0, 0.2, 1);
+  --color-1: #d5dadd;
+  --color-2: #51d5c2;
+  --lineWidth: 1px;
+
+  *,
+  *::before,
+  *::after {
+      box-sizing: inherit;
+  }
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+  background-color: #747878;
+  font-family: 'Nunito', sans-serif;
+}

@@ -1,0 +1,6 @@
+<menu class="menu">
+  <button class="menu__item" *ngFor="let menu of menus" (click)="selectItem(menu.name)" [ngClass]="{'active': selectedItem === menu.name}">
+    <div class="menu__icon" [innerHtml]="menu.icon | safeHtml"></div>
+    <strong class="menu__text" [ngClass]="{'active': selectedItem === menu.name}">{{menu.name}}</strong>
+  </button>
+</menu>
